@@ -33,7 +33,7 @@ with open('config.jinja') as source, open('config.ron', 'w') as target:
         client_id=os.environ['CLIENT_ID'],
         client_secret=os.environ['CLIENT_SECRET'],
         database_url=os.environ['DATABASE_URL'],
-        host_addr=os.environ['HOST_ADDR'],
+        port=os.environ['PORT'],
         owner_id=os.environ['OWNER_ID'],
         manager_guild=os.environ['MANAGER_GUILD'],
         github_webhook_secret=os.environ['GITHUB_WEBHOOK_SECRET'],
