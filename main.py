@@ -39,8 +39,6 @@ with open('config.jinja') as source, open('config.ron', 'w') as target:
         github_webhook_secret=os.environ['GITHUB_WEBHOOK_SECRET'],
     ))
 
-print(open('config.ron').read())
-
 print('[makita-railway] Starting makita...')
 
 child = subprocess.Popen(['./makita', 'run'], env=os.environ)
