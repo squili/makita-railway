@@ -2,6 +2,7 @@ from github import Github
 from jinja2 import Environment, Template
 import os
 import requests
+import signal
 import stat
 import subprocess
 
@@ -40,4 +41,6 @@ with open('config.jinja') as source, open('config.ron', 'w') as target:
 
 print('[makita-railway] Starting makita...')
 
-subprocess.call(['./makita', 'run'], env=os.environ)
+child = subprocess.Popen(['./makita', 'run'], env=os.environ)
+signal.signal(signal.CTRL_C_EVENT, lambda: child.kill())
+child.wait()
