@@ -42,5 +42,5 @@ with open('config.jinja') as source, open('config.ron', 'w') as target:
 print('[makita-railway] Starting makita...')
 
 child = subprocess.Popen(['./makita', 'run'], env=os.environ)
-signal.signal(signal.CTRL_C_EVENT, lambda: child.kill())
+signal.signal(signal.SIGINT, lambda: child.kill())
 child.wait()
